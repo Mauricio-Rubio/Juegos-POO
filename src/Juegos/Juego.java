@@ -1,6 +1,6 @@
 package Juegos;
-import ..&
+import Clases.*;
 public abstract class Juego {
-    public abstract Persona jugar();
+    public abstract Persona jugar() throws Exception;
 
 }
