@@ -9,6 +9,9 @@ public class Persona {
         this.sexo = sexo;
         this.edad= edad;
     }
+    public  Persona(){
+
+    }
 
     public String getNombre() {
         return nombre;
@@ -32,5 +35,14 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", sexo='" + sexo + '\'' +
+                ", edad=" + edad +
+                '}';
     }
 }
