@@ -20,8 +20,21 @@ public class Estudiante extends Persona {
         this.id = id;
     }
 
-    public Estudiante(String nombre, int edad, String sexo, String id, String carrera){
-        super(nombre,sexo,edad);
+    public Estudiante(String nombre, int edad, String sexo, String id, String carrera) {
+        super(nombre, sexo, edad);
+        this.id = id;
+        this.carrera = carrera;
+    }
 
+
+    @Override
+    public String toString() {
+        return "Estudiante{" +
+                "nombre='" + getNombre() + '\'' +
+                ", sexo='" + getSexo() + '\'' +
+                ", edad=" + getEdad() + '\'' +
+                ", carrera='" + carrera + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }
