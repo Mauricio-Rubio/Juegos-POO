@@ -25,9 +25,6 @@ public class Estudiante extends Persona {
 
     }
 
-    public Estudiante() {
-
-    }
 
     @Override
     public String toString() {

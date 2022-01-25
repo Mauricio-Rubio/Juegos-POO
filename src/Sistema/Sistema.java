@@ -32,8 +32,14 @@ public class Sistema {
         scInt = new Scanner(System.in);
         System.out.println("Ingresa el numero de estudiantes");
         students = new Estudiante[scInt.nextInt()];
+        for (Estudiante est: students) {
+            System.out.println("Estudiantes --->"+est);
+        }
         try {
             llenarRegistro();
+            for (Estudiante est: students) {
+                System.out.println(est);
+            }
         } catch (Exception e) {
             System.out.println("Error inesperado");
         }
@@ -44,12 +50,15 @@ public class Sistema {
             sc = new Scanner(System.in);
             scInt = new Scanner(System.in);
             String name, date, sex, carrer;
-            if (students == null) {
+            System.out.println("Es null --->"+students);
+            System.out.println("student 0 --->"+students[0]);
+            if (students[0] == null) {
+                System.out.println("student 0 --->"+students[0]);
                 for (int i = 0; i < students.length; i++) {
-                    students[i] = new Estudiante();
+                    //students[i] = new Estudiante();
                     System.out.println("Ingresa el nombre completo del estudiante " + i);
                     name = sc.nextLine();
-                    System.out.println(name);
+                    //System.out.println(name);
                     System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + i);
                     date = sc.nextLine();
                     System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + i);
@@ -62,7 +71,7 @@ public class Sistema {
                         System.out.println("Debes ingresar los datos correctamente");
                         String eleecion;
                         do {
-                            System.out.println("Deseas continuar (S/N)");
+                            System.out.println("Deseas continuar (S/N) 1");
                             eleecion = sc.nextLine();
                             if (eleecion.equals("S") || eleecion.equals("s")) {
                                 llenarRegistro();
@@ -91,15 +100,15 @@ public class Sistema {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
         String name, date, sex, carrer;
-        for (i = 0; i < students.length; i++) {
-            students[i] = new Estudiante();
-            System.out.println("Ingresa el nombre completo del estudiante " + i);
+        for (i = i; i < students.length; i++) {
+            //students[i] = new Estudiante();
+            System.out.println("Ingresa el nombre completo del estudiante " + (i+1));
             name = sc.nextLine();
-            System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + i);
+            System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + (i+1));
             date = sc.nextLine();
-            System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + i);
+            System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + (i+1));
             sex = sc.nextLine();
-            System.out.println("Carrera " + i);
+            System.out.println("Carrera " + (i+1));
             carrer = sc.nextLine();
             if (validarDataRegistro(name, date, sex, carrer)) {
                 students[i] = new Estudiante(name, 0, sex, "123", carrer);
@@ -107,7 +116,7 @@ public class Sistema {
                 System.out.println("Debes ingresar los datos correctamente");
                 String eleecion;
                 do {
-                    System.out.println("Deseas continuar (S/N)");
+                    System.out.println("Deseas continuar (S/N) 2");
                     eleecion = sc.nextLine();
                     if (eleecion.equals("S") || eleecion.equals("s")) {
                         try {
