@@ -1,6 +1,7 @@
 package Sistema;
 
 import Clases.*;
+import Juegos.Juego;
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.*;
@@ -8,6 +9,7 @@ import java.util.*;
 public class Sistema {
     int[] dias = {1, 2, 3};
     private Estudiante[] students;
+    private Juego[] juegos = new Juego[3];
     Interfaz inter = new Interfaz();
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
@@ -24,11 +26,16 @@ public class Sistema {
         if (elec.equals("s") || elec.equals("S")) {
             //iniciar juego precargado
         } else {
-            registrar();
+            if(registrar()){
+                System.out.println("Registro exitoso");
+                comenzarJuego();
+            }else{
+                menu();
+            }
         }
     }
 
-    public void registrar() {
+    public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
         System.out.println("Ingresa el numero de estudiantes");
@@ -37,11 +44,14 @@ public class Sistema {
         try {
             nStunden = Integer.parseInt(x);
             if (nStunden >= 1) {
-                students = new Estudiante[scInt.nextInt()];
+                students = new Estudiante[nStunden];
                 try {
                     llenarRegistro();
                     for (Estudiante est : students) {
                         System.out.println(est);
+                    }
+                    if(students != null){
+                        return true;
                     }
                 } catch (Exception e) {
                     System.out.println("Error inesperado");
@@ -63,7 +73,7 @@ public class Sistema {
             System.out.println("Debes ingresar un numero valido");
             String eleecion;
             do {
-                System.out.println("Deseas continuar (S/N) 1");
+                System.out.println("Deseas continuar (S/N)");
                 eleecion = sc.nextLine();
                 if (eleecion.equals("S") || eleecion.equals("s")) {
                     registrar();
@@ -73,13 +83,7 @@ public class Sistema {
             } while (!eleecion.equals("S") || !eleecion.equals("s") || !eleecion.equals("n") || !eleecion.equals("N"));
 
         }
-
-
-
-        /*for (Estudiante est: students) {
-            System.out.println("Estudiantes --->"+est);
-        }*/
-
+        return false;
     }
 
     public void llenarRegistro() throws Exception {
@@ -192,6 +196,10 @@ public class Sistema {
         return false;
     }
 
+
+    public void comenzarJuego(){
+        System.out.println(juegos.length);
+    }
 
     public void concursantes() {
 
