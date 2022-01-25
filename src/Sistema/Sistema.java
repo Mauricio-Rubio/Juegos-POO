@@ -51,19 +51,17 @@ public class Sistema {
             scInt = new Scanner(System.in);
             String name, date, sex, carrer;
             System.out.println("Es null --->"+students);
-            System.out.println("student 0 --->"+students[0]);
             if (students[0] == null) {
-                System.out.println("student 0 --->"+students[0]);
                 for (int i = 0; i < students.length; i++) {
                     //students[i] = new Estudiante();
-                    System.out.println("Ingresa el nombre completo del estudiante " + i);
+                    System.out.println("Ingresa el nombre completo del estudiante " + (i+1));
                     name = sc.nextLine();
                     //System.out.println(name);
-                    System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + i);
+                    System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + (i+1));
                     date = sc.nextLine();
-                    System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + i);
+                    System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + (i+1));
                     sex = sc.nextLine();
-                    System.out.println("Carrera " + i);
+                    System.out.println("Carrera " + (i+1));
                     carrer = sc.nextLine();
                     if (validarDataRegistro(name, date, sex, carrer)) {
                         students[i] = new Estudiante(name, 0, sex, "123", carrer);

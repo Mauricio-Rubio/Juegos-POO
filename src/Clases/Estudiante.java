@@ -22,7 +22,8 @@ public class Estudiante extends Persona {
 
     public Estudiante(String nombre, int edad, String sexo, String id, String carrera) {
         super(nombre, sexo, edad);
-
+        this.id = id;
+        this.carrera = carrera;
     }
 
 
