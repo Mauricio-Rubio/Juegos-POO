@@ -32,18 +32,54 @@ public class Sistema {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
         System.out.println("Ingresa el numero de estudiantes");
-        students = new Estudiante[scInt.nextInt()];
+        String x = scInt.nextLine();
+        int nStunden = 0;
+        try {
+            nStunden = Integer.parseInt(x);
+            if (nStunden >= 1) {
+                students = new Estudiante[scInt.nextInt()];
+                try {
+                    llenarRegistro();
+                    for (Estudiante est : students) {
+                        System.out.println(est);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Error inesperado");
+                }
+            } else {
+                System.out.println("Debes ingresar un numero valido");
+                String eleecion;
+                do {
+                    System.out.println("Deseas continuar (S/N) 1");
+                    eleecion = sc.nextLine();
+                    if (eleecion.equals("S") || eleecion.equals("s")) {
+                        registrar();
+                    } else if (eleecion.equals("N") || eleecion.equals("n")) {
+                        break;
+                    }
+                } while (!eleecion.equals("S") || !eleecion.equals("s") || !eleecion.equals("n") || !eleecion.equals("N"));
+            }
+        } catch (Exception e) {
+            System.out.println("Debes ingresar un numero valido");
+            String eleecion;
+            do {
+                System.out.println("Deseas continuar (S/N) 1");
+                eleecion = sc.nextLine();
+                if (eleecion.equals("S") || eleecion.equals("s")) {
+                    registrar();
+                } else if (eleecion.equals("N") || eleecion.equals("n")) {
+                    break;
+                }
+            } while (!eleecion.equals("S") || !eleecion.equals("s") || !eleecion.equals("n") || !eleecion.equals("N"));
+
+        }
+
+
+
         /*for (Estudiante est: students) {
             System.out.println("Estudiantes --->"+est);
         }*/
-        try {
-            llenarRegistro();
-            for (Estudiante est: students) {
-                System.out.println(est);
-            }
-        } catch (Exception e) {
-            System.out.println("Error inesperado");
-        }
+
     }
 
     public void llenarRegistro() throws Exception {
@@ -55,19 +91,19 @@ public class Sistema {
             if (students[0] == null) {
                 for (int i = 0; i < students.length; i++) {
                     //students[i] = new Estudiante();
-                    System.out.println("Ingresa el nombre completo del estudiante " + (i+1));
+                    System.out.println("Ingresa el nombre completo del estudiante " + (i + 1));
                     name = sc.nextLine();
                     //System.out.println(name);
                     System.out.println("Fecha de nacimiento (dd/mm/aaaa) ");
                     date = sc.nextLine();
                     System.out.println("Sexo (Masculino: M, Femenino F, Otro X) ");
                     sex = sc.nextLine();
-                    System.out.println("Carrera " + (i+1));
+                    System.out.println("Carrera " + (i + 1));
                     carrer = sc.nextLine();
                     if (validarDataRegistro(name, date, sex, carrer)) {
                         String[] dateArr = date.split("/");
                         int TODAY = 2022;
-                        students[i] = new Estudiante(name, Integer.parseInt(dateArr[2])-TODAY, sex, inter.generarID(name,dateArr[0],dateArr[2]), carrer);
+                        students[i] = new Estudiante(name, Integer.parseInt(dateArr[2]) - TODAY, sex, inter.generarID(name, dateArr[0], dateArr[2]), carrer);
                     } else {
                         System.out.println("Debes ingresar los datos correctamente");
                         String eleecion;
@@ -104,18 +140,18 @@ public class Sistema {
         String name, date, sex, carrer;
         for (i = i; i < students.length; i++) {
             //students[i] = new Estudiante();
-            System.out.println("Ingresa el nombre completo del estudiante " + (i+1));
+            System.out.println("Ingresa el nombre completo del estudiante " + (i + 1));
             name = sc.nextLine();
-            System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + (i+1));
+            System.out.println("Fecha de nacimiento (dd/mm/aaaa) " + (i + 1));
             date = sc.nextLine();
-            System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + (i+1));
+            System.out.println("Sexo (Masculino: M, Femenino F, Otro X) " + (i + 1));
             sex = sc.nextLine();
-            System.out.println("Carrera " + (i+1));
+            System.out.println("Carrera " + (i + 1));
             carrer = sc.nextLine();
             if (validarDataRegistro(name, date, sex, carrer)) {
                 String[] dateArr = date.split("/");
                 int TODAY = 2022;
-                students[i] = new Estudiante(name, Integer.parseInt(dateArr[2])-TODAY, sex, inter.generarID(name,dateArr[0],dateArr[2]), carrer);
+                students[i] = new Estudiante(name, Integer.parseInt(dateArr[2]) - TODAY, sex, inter.generarID(name, dateArr[0], dateArr[2]), carrer);
             } else {
                 System.out.println("Debes ingresar los datos correctamente");
                 String eleecion;
@@ -155,6 +191,7 @@ public class Sistema {
         }
         return false;
     }
+
 
     public void concursantes() {
 
