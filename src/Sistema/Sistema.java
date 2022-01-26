@@ -2,6 +2,7 @@ package Sistema;
 
 import Clases.*;
 import Juegos.Juego;
+import Juegos.miniBlackJack;
 import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.*;
@@ -38,7 +39,7 @@ public class Sistema {
     public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
-        System.out.println("Ingresa el numero de estudiantes");
+        System.out.println("Ingresa el numero de estudiantes (minimo 2)");
         String x = scInt.nextLine();
         int nStunden = 0;
         try {
@@ -198,7 +199,9 @@ public class Sistema {
 
 
     public void comenzarJuego(){
-        System.out.println(juegos.length);
+    //Falta agregar un metodo que divida a los usuarios en parejas para así continuar
+        //juegos[0] = new miniBlackJack();
+    Persona ganador = juegos[0].jugar();
     }
 
     public void concursantes() {
