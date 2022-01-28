@@ -5,4 +5,8 @@ public  class  Interfaz {
         int numero = (int)(Math.random()*1000+1);
         return String.valueOf(numero)+nombre.charAt(0)+nombre.charAt(2)+year.charAt(2)+year.charAt(3);
     }
+
+    public void distribuirJugadores(){
+
+    }
 }

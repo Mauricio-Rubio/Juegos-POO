@@ -15,8 +15,9 @@ public class Sistema {
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
 
-    public void iniciar() {
+    public void iniciar(Estudiante [] arr) {
         System.out.println("Bienvenido al torneo");
+        students = arr;
         menu();
     }
 
@@ -27,7 +28,7 @@ public class Sistema {
         if (elec.equals("s") || elec.equals("S")) {
             //iniciar juego precargado
         } else {
-            if(registrar()){
+            if((elec.equals("n") || elec.equals("N")) && registrar()){
                 System.out.println("Registro exitoso");
                 comenzarJuego();
             }else{
@@ -39,18 +40,25 @@ public class Sistema {
     public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
-        System.out.println("Ingresa el numero de estudiantes (minimo 2)");
-        String x = scInt.nextLine();
-        int nStunden = 0;
+       // System.out.println("Ingresa el numero de estudiantes (minimo 2)");
+       // String x = scInt.nextLine();
+        int nStunden = students.length;
+        for(int i = 0; i<students.length;i++){
+            System.out.println(students[i]);
+        }
+        System.out.println("Esto vale stundets--->"+nStunden);
         try {
-            nStunden = Integer.parseInt(x);
+         //   nStunden = Integer.parseInt(x);
             if (nStunden >= 1) {
-                students = new Estudiante[nStunden];
+                //students = new Estudiante[nStunden];
                 try {
-                    llenarRegistro();
-                    for (Estudiante est : students) {
-                        System.out.println(est);
-                    }
+                    //llenarRegistro();
+                    //for (Estudiante est : students) {
+                      //  System.out.println(est);
+                    //}
+                   // for (int z = 0; z<students.length; z++){
+                     //   System.out.println(students[z]);
+                    //}
                     if(students != null){
                         return true;
                     }
@@ -201,7 +209,8 @@ public class Sistema {
     public void comenzarJuego(){
     //Falta agregar un metodo que divida a los usuarios en parejas para así continuar
         //juegos[0] = new miniBlackJack();
-    Persona ganador = juegos[0].jugar();
+    //Persona ganador = juegos[0].jugar();
+        System.out.println("Comenzando en breves");
     }
 
     public void concursantes() {
