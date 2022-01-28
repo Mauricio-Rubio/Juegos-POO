@@ -42,11 +42,19 @@ public class Interfaz {
         Estudiante aux;
         a = students.length;
         for (int i = 0; i <= a / 2; i++) {
-            aux=students[i];
-            students[i]=students[a-1];
-            students[a-1]=aux;
+            aux = students[i];
+            students[i] = students[a - 1];
+            students[a - 1] = aux;
             a--;
         }
-    return  students;
+        return students;
+    }
+
+    public void mostrarMatriz(Estudiante[][] students) {
+        for (int i = 0; i < students.length; i++) {
+            for (int j = 0; j < students[i].length; j++) {
+                System.out.println(students[i][j]);
+            }
+        }
     }
 }

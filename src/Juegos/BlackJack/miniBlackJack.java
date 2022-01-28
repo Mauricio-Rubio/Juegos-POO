@@ -1,6 +1,8 @@
-package Juegos;
+package Juegos.BlackJack;
 import Clases.*;
-public class miniBlackJack extends Juego{
+import Juegos.Juego;
+
+public class miniBlackJack extends Juego {
 
     public miniBlackJack(Persona p1, Persona p2){
         super(p1,p2);

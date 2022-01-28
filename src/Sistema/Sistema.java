@@ -2,8 +2,6 @@ package Sistema;
 
 import Clases.*;
 import Juegos.Juego;
-import Juegos.miniBlackJack;
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.*;
 
@@ -211,14 +209,12 @@ public class Sistema {
         //juegos[0] = new miniBlackJack();
     //Persona ganador = juegos[0].jugar();
         System.out.println("Comenzando en breves");
-        Estudiante [] [] jugadores = inter.distribuirJugadores(students);
-        //System.out.println("long1--->"+jugadores.length);
-        //System.out.println("long2--->"+jugadores[0].length);
-      for(int i = 0; i<jugadores.length; i++){
-           for(int j = 0; j<jugadores[i].length; j++){
-               System.out.println(jugadores[i][j]);
-           }
-        }
+        Estudiante [] [] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        Estudiante [] [] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        Estudiante [] [] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        /*inter.mostrarMatriz(jugadoresD1);
+        inter.mostrarMatriz(jugadoresD2);
+        inter.mostrarMatriz(jugadoresD3);*/
     }
 
     public void concursantes() {
