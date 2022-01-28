@@ -1,6 +1,7 @@
 package Sistema;
 
 import Clases.*;
+import DataBase.DataBase;
 import Juegos.BlackJack.miniBlackJack;
 import Juegos.Conecta4.JugarConecta;
 import Juegos.Jugar;
@@ -11,12 +12,13 @@ public class Sistema {
     int[] dias = {1, 2, 3};
     private Estudiante[] students;
     private Jugar[] juegos = new Jugar[3];
-    public Estudiante [][] ganadores;
+    private DataBase dBase = new DataBase();
+    public Estudiante[][] ganadores;
     Interfaz inter = new Interfaz();
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
 
-    public void iniciar(Estudiante [] arr) {
+    public void iniciar(Estudiante[] arr) {
         System.out.println("Bienvenido al torneo");
         students = arr;
         menu();
@@ -29,10 +31,12 @@ public class Sistema {
         if (elec.equals("s") || elec.equals("S")) {
             //iniciar juego precargado
         } else {
-            if((elec.equals("n") || elec.equals("N")) && registrar()){
+            if ((elec.equals("n") || elec.equals("N")) && registrar()) {
                 System.out.println("Registro exitoso");
+                System.out.println("Guardando Jugadores");
+                dBase.guardarJugadores(students);
                 comenzarJuego();
-            }else{
+            } else {
                 menu();
             }
         }
@@ -41,26 +45,26 @@ public class Sistema {
     public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
-       // System.out.println("Ingresa el numero de estudiantes (minimo 2)");
-       // String x = scInt.nextLine();
+        // System.out.println("Ingresa el numero de estudiantes (minimo 2)");
+        // String x = scInt.nextLine();
         int nStunden = students.length;
         /*for(int i = 0; i<students.length;i++){
             System.out.println(students[i]);
         }*/
         //System.out.println("Esto vale stundets--->"+nStunden);
         try {
-         //   nStunden = Integer.parseInt(x);
+            //   nStunden = Integer.parseInt(x);
             if (nStunden >= 1) {
                 //students = new Estudiante[nStunden];
                 try {
                     //llenarRegistro();
                     //for (Estudiante est : students) {
-                      //  System.out.println(est);
+                    //  System.out.println(est);
                     //}
-                   // for (int z = 0; z<students.length; z++){
-                     //   System.out.println(students[z]);
+                    // for (int z = 0; z<students.length; z++){
+                    //   System.out.println(students[z]);
                     //}
-                    if(students != null){
+                    if (students != null) {
                         return true;
                     }
                 } catch (Exception e) {
@@ -207,18 +211,18 @@ public class Sistema {
     }
 
 
-    public void comenzarJuego(){
-    //Falta agregar un metodo que divida a los usuarios en parejas para así continuar
+    public void comenzarJuego() {
+        //Falta agregar un metodo que divida a los usuarios en parejas para así continuar
         //juegos[0] = new miniBlackJack();
-    //Persona ganador = juegos[0].jugar();
+        //Persona ganador = juegos[0].jugar();
         System.out.println("Comenzando en breves");
-        Estudiante [] [] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        Estudiante [] [] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        Estudiante [] [] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        ganadores = new Estudiante [3][jugadoresD1[0].length];
-        juegos[0]= new miniBlackJack(jugadoresD1);
-        Estudiante [] temp =juegos[0].jugar();
-        for(int i=0; i<ganadores[0].length; i++){
+        Estudiante[][] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        Estudiante[][] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        Estudiante[][] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        ganadores = new Estudiante[3][jugadoresD1[0].length];
+        juegos[0] = new miniBlackJack(jugadoresD1);
+        Estudiante[] temp = juegos[0].jugar();
+        for (int i = 0; i < ganadores[0].length; i++) {
             ganadores[0][i] = temp[i];
         }
         System.out.println("Estos son los ganadores");
