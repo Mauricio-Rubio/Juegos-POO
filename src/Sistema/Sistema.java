@@ -1,14 +1,16 @@
 package Sistema;
 
 import Clases.*;
-import Juegos.Juego;
+import Juegos.BlackJack.miniBlackJack;
+import Juegos.Conecta4.JugarConecta;
+import Juegos.Jugar;
 
 import java.util.*;
 
 public class Sistema {
     int[] dias = {1, 2, 3};
     private Estudiante[] students;
-    private Juego[] juegos = new Juego[3];
+    private Jugar[] juegos = new Jugar[3];
     Interfaz inter = new Interfaz();
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
@@ -212,6 +214,9 @@ public class Sistema {
         Estudiante [] [] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
         Estudiante [] [] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
         Estudiante [] [] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        //juegos[0]=new JugarConecta(jugadoresD2);
+        juegos[0]= new miniBlackJack(jugadoresD1);
+        juegos[0].jugar();
         /*inter.mostrarMatriz(jugadoresD1);
         inter.mostrarMatriz(jugadoresD2);
         inter.mostrarMatriz(jugadoresD3);*/

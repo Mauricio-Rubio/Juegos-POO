@@ -1,11 +1,14 @@
 package Juegos;
 import Clases.*;
-public class Dados extends Juego{
+public class Dados extends Jugar{
 
-    public Persona jugar(){
+    public Dados(Estudiante [] [] jugadores){
+        super(jugadores);
+    }
+
+    public Estudiante [][] jugar(){
         return null;
     }
-    public Dados(Persona p1, Persona p2){
-        super(p1,p2);
-    }
+
+
 }

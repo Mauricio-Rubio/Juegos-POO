@@ -1,16 +1,20 @@
 package Juegos.BlackJack;
 import Clases.*;
-import Juegos.Juego;
+import Juegos.Jugar;
 
-public class miniBlackJack extends Juego {
-
-    public miniBlackJack(Persona p1, Persona p2){
-        super(p1,p2);
+public class miniBlackJack extends Jugar {
+    private Estudiante [] [] jugadores;
+    private Baraja baraja;
+    public miniBlackJack(Estudiante [][] jugadores)
+    {
+        super(jugadores);
+        baraja=new Baraja();
     }
 
-    public Persona jugar(){
+    public Estudiante [][] jugar(){
     if(true){
         System.out.println("Hola");
+        System.out.println(baraja);
     }
         return null;
     }
