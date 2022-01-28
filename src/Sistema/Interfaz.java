@@ -1,6 +1,7 @@
 package Sistema;
 
 import Clases.Estudiante;
+import IA.IA;
 
 public class Interfaz {
     public String generarID(String nombre, String dia, String year) {
@@ -32,7 +33,8 @@ public class Interfaz {
             for (int i = 0; i < studentsRepartition[0].length - 1; i++) {
                 studentsRepartition[1][i] = students[(2 * (i + 1)) - 1];
             }
-            studentsRepartition[1][(students.length - 1) / 2] = new Estudiante("IA", generarID("IA"));
+            //studentsRepartition[1][(students.length - 1) / 2] = new Estudiante("IA", generarID("IA"));
+            studentsRepartition[1][(students.length - 1) / 2] = new IA("IA",generarID("IA"));
         }
         return studentsRepartition;
     }

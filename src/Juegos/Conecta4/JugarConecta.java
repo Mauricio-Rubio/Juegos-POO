@@ -4,12 +4,12 @@ import Clases.Estudiante;
 import Juegos.Jugar;
 
 public class JugarConecta extends Jugar {
-    Estudiante[][] jugadores;
+    //Estudiante[][] jugadores;
     Conecta4 conecta4 = new Conecta4();
     boolean fin;
 
     public JugarConecta(Estudiante[][] jugadores) {
-        //super(jugadores);
+        super(jugadores);
     }
 
     public Estudiante [] [] jugar(){
