@@ -29,12 +29,20 @@ public class Sistema {
         System.out.println("Ya existe (S/N)");
         String elec = sc.nextLine();
         if (elec.equals("s") || elec.equals("S")) {
-            //iniciar juego precargado
+            students = dBase.leerEstudiantes();
+            for (Estudiante es:students) {
+                System.out.println(es);
+            }
         } else {
             if ((elec.equals("n") || elec.equals("N")) && registrar()) {
                 System.out.println("Registro exitoso");
                 System.out.println("Guardando Jugadores");
-                dBase.guardarJugadores(students);
+                if(dBase.guardarJugadores(students)){
+                    System.out.println("Jugadores guardados");
+                }else{
+                    System.out.println("Error al guardar archivos");
+                    return;
+                }
                 comenzarJuego();
             } else {
                 menu();
@@ -227,6 +235,8 @@ public class Sistema {
         }
         System.out.println("Estos son los ganadores");
         inter.mostrarMatriz(ganadores);
+        System.out.println("Juego ha terminado");
+        menu();
 
         //inter.mostrarMatriz(jugadoresD1);
         /*inter.mostrarMatriz(jugadoresD2);

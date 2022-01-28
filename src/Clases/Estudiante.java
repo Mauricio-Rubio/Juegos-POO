@@ -1,8 +1,6 @@
 package Clases;
 
-import java.io.Serializable;
-
-public class Estudiante extends Persona implements Serializable {
+public class Estudiante extends Persona  {
     private String carrera;
     private String id;
 
