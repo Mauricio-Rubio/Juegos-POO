@@ -40,6 +40,14 @@ public class Baraja {
         }
     }
 
+    public boolean compararCartas(Carta c1, Carta c2){
+        if(c1.equals(c2)){
+            return true;
+        }else{
+            return  false;
+        }
+    }
+
     @Override
     public String toString() {
         return "Baraja{" +
