@@ -14,6 +14,9 @@ public class miniBlackJack extends Jugar {
     public Estudiante [][] jugar(){
     if(true){
         System.out.println("Hola");
+        System.out.println(baraja.tomarCarta());
+        System.out.println("Revolviendo");
+        baraja.revolverBaraja();
         System.out.println(baraja);
     }
         return null;

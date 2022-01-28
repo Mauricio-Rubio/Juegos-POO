@@ -86,7 +86,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return this.valores[this.valor] + " de " + this.figuras[this.figura];
+        return this.valores[this.valor] + " de " + this.figuras[this.figura]+"\n";
     }
 
     public static void main(final String[] array) {
