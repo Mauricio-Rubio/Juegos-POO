@@ -217,7 +217,7 @@ public class Sistema {
         //juegos[0]=new JugarConecta(jugadoresD2);
         juegos[0]= new miniBlackJack(jugadoresD1);
         juegos[0].jugar();
-        inter.mostrarMatriz(jugadoresD1);
+        //inter.mostrarMatriz(jugadoresD1);
         /*inter.mostrarMatriz(jugadoresD2);
         inter.mostrarMatriz(jugadoresD3);*/
     }

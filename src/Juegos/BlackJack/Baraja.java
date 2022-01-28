@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Baraja {
 
     Carta[] cartas;
+    int contador =0;
 
     public Baraja() {
         cartas = new Carta[52];
@@ -18,33 +19,28 @@ public class Baraja {
     }
 
     public Carta tomarCarta() {
-        int contador = 0;
         Carta x;
-        if ((contador < 52)) {
-            x = cartas[contador];
-            contador++;
-        } else {
-            System.out.println("Ya no puedes sacar mas cartas");
-            x = null;
-        }
+        x = cartas[contador];
+        contador++;
         return x;
     }
-    public void revolverBaraja(){
+
+    public void revolverBaraja() {
         Carta aux;
         int aleatorio;
-        for(int i = 0; i< cartas.length; i++){
-            aleatorio = random(cartas.length)-1;
+        for (int i = 0; i < cartas.length; i++) {
+            aleatorio = random(cartas.length) - 1;
             aux = cartas[aleatorio];
             cartas[aleatorio] = cartas[i];
             cartas[i] = aux;
         }
     }
 
-    public boolean compararCartas(Carta c1, Carta c2){
-        if(c1.equals(c2)){
+    public boolean compararCartas(Carta c1, Carta c2) {
+        if (c1.equals(c2)) {
             return true;
-        }else{
-            return  false;
+        } else {
+            return false;
         }
     }
 
@@ -62,6 +58,7 @@ public class Baraja {
     public void setCartas(Carta[] cartas) {
         this.cartas = cartas;
     }
+
     private int random(int max) {
         return (int) Math.round(Math.random() * max + 0.5);
     }
