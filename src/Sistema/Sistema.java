@@ -3,7 +3,6 @@ package Sistema;
 import Clases.*;
 import DataBase.DataBase;
 import Juegos.BlackJack.miniBlackJack;
-import Juegos.Conecta4.JugarConecta;
 import Juegos.Jugar;
 
 import java.util.*;
@@ -18,21 +17,22 @@ public class Sistema {
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
 
-    public void iniciar(Estudiante[] arr) {
+    public void iniciar(Estudiante[] students) {
         System.out.println("Bienvenido al torneo");
-        students = arr;
-        menu();
+        this.students = students;
+        estado();
     }
 
-    public void menu() {
+    public void estado() {
         //Aqui debemos preguntar si ya existe un juego en memoria
-        System.out.println("Ya existe (S/N)");
+        //System.out.println("Ya existe (S/N)");
         String elec = sc.nextLine();
-        if (elec.equals("s") || elec.equals("S")) {
+        if (dBase.leerEstudiantes() != null) {
             students = dBase.leerEstudiantes();
             for (Estudiante es:students) {
                 System.out.println(es);
             }
+            menu();
         } else {
             if ((elec.equals("n") || elec.equals("N")) && registrar()) {
                 System.out.println("Registro exitoso");
@@ -45,10 +45,22 @@ public class Sistema {
                 }
                 comenzarJuego();
             } else {
-                menu();
+                estado();
             }
         }
     }
+
+    public void menu(){
+        sc = new Scanner(System.in);
+        System.out.println("1.- Concursantes registrados");
+        System.out.println("2.- Partidas registradas");
+        System.out.println("3.- Lista del torneo");
+        System.out.println("1.- Ganadores");
+        String elec = sc.nextLine();
+        
+    }
+
+
 
     public boolean registrar() {
         sc = new Scanner(System.in);
@@ -236,7 +248,7 @@ public class Sistema {
         System.out.println("Estos son los ganadores");
         inter.mostrarMatriz(ganadores);
         System.out.println("Juego ha terminado");
-        menu();
+        estado();
 
         //inter.mostrarMatriz(jugadoresD1);
         /*inter.mostrarMatriz(jugadoresD2);
