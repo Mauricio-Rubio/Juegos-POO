@@ -17,14 +17,14 @@ public class Interfaz {
         Estudiante[][] studentsRepartition;
         int modulo = students.length % 2;
         if (modulo == 0) {
-            System.out.println("Es par");
+            //System.out.println("Es par");
             studentsRepartition = new Estudiante[2][students.length / 2];
             for (int i = 0; i < studentsRepartition[0].length; i++) {
                 studentsRepartition[0][i] = students[2 * i];
                 studentsRepartition[1][i] = students[(2 * (i + 1)) - 1];
             }
         } else {
-            System.out.println("Es impar");
+            //System.out.println("Es impar");
             studentsRepartition = new Estudiante[2][(students.length + 1) / 2];
             for (int i = 0; i < studentsRepartition[0].length; i++) {
                 studentsRepartition[0][i] = students[2 * i];

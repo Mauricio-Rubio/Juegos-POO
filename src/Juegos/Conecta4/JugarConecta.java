@@ -9,7 +9,7 @@ public class JugarConecta extends Jugar {
     boolean fin;
 
     public JugarConecta(Estudiante[][] jugadores) {
-        super(jugadores);
+        //super(jugadores);
     }
 
     public Estudiante [] [] jugar(){

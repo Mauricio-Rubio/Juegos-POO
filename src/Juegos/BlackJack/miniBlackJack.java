@@ -7,19 +7,14 @@ public class miniBlackJack extends Jugar {
     private Baraja baraja;
     public miniBlackJack(Estudiante [][] jugadores)
     {
-        super(jugadores);
+        //super(jugadores);
+        this.jugadores = jugadores;
         baraja=new Baraja();
     }
 
     public Estudiante [][] jugar(){
-    if(true){
-        System.out.println("Hola");
-        Carta c1= baraja.tomarCarta();
-        Carta c2= baraja.tomarCarta();
-        System.out.println("Comparando Cartas");
-        //baraja.revolverBaraja();
-        System.out.println(baraja.compararCartas(c1,c2));
-    }
+        int PARTIDAS = jugadores[0].length;
+        System.out.println("Partidas--->"+PARTIDAS);
         return null;
     }
 }
