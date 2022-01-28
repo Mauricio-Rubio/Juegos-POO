@@ -15,9 +15,12 @@ public class miniBlackJack extends Jugar {
         //baraja=new Baraja();
     }
 
-    public Estudiante[][] jugar() {
+    public Estudiante[] jugar() {
         int PARTIDAS = jugadores[0].length;
+        Estudiante [] ganadores;
+        boolean noContest=false;
         System.out.println("Partidas por simular--->" + PARTIDAS);
+        ganadores = new Estudiante[PARTIDAS];
         //System.out.println("c1-->"+baraja.tomarCarta());
         //System.out.println("c2-->"+baraja.tomarCarta());
         for (int i = 1; i <= PARTIDAS; i++) {
@@ -62,17 +65,19 @@ public class miniBlackJack extends Jugar {
                     break;
                 case 4:
                     System.out.println("empate");
+                    noContest = true;
             }
-            try{System.out.println("Jugador " + winner.getId() + " ha ganado ");}
-            catch (Exception e){}
+            if(noContest){
+                System.out.println("Han empatado");
+            }else{
+                System.out.println("Jugador " + winner.getId() + " ha ganado ");
+                ganadores[i-1]=winner;
+            }
 
-            //System.out.println("Mano de " + jugadores[0][i - 1].getId() + " es " + manoJ1);
 
 
-            //System.out.println();
         }
-        System.out.println("");
-        return null;
+        return ganadores;
     }
 
     public boolean elegir(Estudiante jugador) {

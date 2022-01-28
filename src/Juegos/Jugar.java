@@ -7,6 +7,6 @@ public abstract class Jugar {
         this.jugadores = jugadores;
     }
 
-    public abstract Estudiante [] []  jugar();
+    public abstract Estudiante []  jugar();
 
 }

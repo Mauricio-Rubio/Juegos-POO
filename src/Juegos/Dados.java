@@ -6,7 +6,7 @@ public class Dados extends Jugar{
         super(jugadores);
     }
 
-    public Estudiante [][] jugar(){
+    public Estudiante [] jugar(){
         return null;
     }
 

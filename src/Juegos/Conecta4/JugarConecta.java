@@ -12,7 +12,7 @@ public class JugarConecta extends Jugar {
         super(jugadores);
     }
 
-    public Estudiante [] [] jugar(){
+    public Estudiante [] jugar(){
         System.out.println(jugadores.length);
         //        int partidasAJugar=jugadores[0].length;
   /*      for(int i=0; i<partidasAJugar; i++){

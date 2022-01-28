@@ -11,6 +11,7 @@ public class Sistema {
     int[] dias = {1, 2, 3};
     private Estudiante[] students;
     private Jugar[] juegos = new Jugar[3];
+    public Estudiante [][] ganadores;
     Interfaz inter = new Interfaz();
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
@@ -214,13 +215,20 @@ public class Sistema {
         Estudiante [] [] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
         Estudiante [] [] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
         Estudiante [] [] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        //juegos[0]=new JugarConecta(jugadoresD2);
+        ganadores = new Estudiante [3][jugadoresD1[0].length];
         juegos[0]= new miniBlackJack(jugadoresD1);
-        juegos[0].jugar();
+        Estudiante [] temp =juegos[0].jugar();
+        for(int i=0; i<ganadores[0].length; i++){
+            ganadores[0][i] = temp[i];
+        }
+        System.out.println("Estos son los ganadores");
+        inter.mostrarMatriz(ganadores);
+
         //inter.mostrarMatriz(jugadoresD1);
         /*inter.mostrarMatriz(jugadoresD2);
         inter.mostrarMatriz(jugadoresD3);*/
     }
+
 
     public void concursantes() {
 
