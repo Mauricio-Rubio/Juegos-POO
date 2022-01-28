@@ -211,6 +211,14 @@ public class Sistema {
         //juegos[0] = new miniBlackJack();
     //Persona ganador = juegos[0].jugar();
         System.out.println("Comenzando en breves");
+        Estudiante [] [] jugadores = inter.distribuirJugadores(students);
+        System.out.println("long1--->"+jugadores.length);
+        System.out.println("long2--->"+jugadores[0].length);
+      for(int i = 0; i<jugadores.length; i++){
+           for(int j = 0; j<jugadores[i].length; j++){
+               System.out.println(jugadores[i][j]);
+           }
+        }
     }
 
     public void concursantes() {
