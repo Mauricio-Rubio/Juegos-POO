@@ -9,8 +9,8 @@ public class Persona {
         this.sexo = sexo;
         this.edad= edad;
     }
-    public  Persona(){
-
+    public  Persona(String nombre){
+        this.nombre = nombre;
     }
 
     public String getNombre() {

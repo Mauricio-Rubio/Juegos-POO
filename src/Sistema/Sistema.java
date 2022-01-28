@@ -43,10 +43,10 @@ public class Sistema {
        // System.out.println("Ingresa el numero de estudiantes (minimo 2)");
        // String x = scInt.nextLine();
         int nStunden = students.length;
-        for(int i = 0; i<students.length;i++){
+        /*for(int i = 0; i<students.length;i++){
             System.out.println(students[i]);
-        }
-        System.out.println("Esto vale stundets--->"+nStunden);
+        }*/
+        //System.out.println("Esto vale stundets--->"+nStunden);
         try {
          //   nStunden = Integer.parseInt(x);
             if (nStunden >= 1) {
@@ -212,8 +212,8 @@ public class Sistema {
     //Persona ganador = juegos[0].jugar();
         System.out.println("Comenzando en breves");
         Estudiante [] [] jugadores = inter.distribuirJugadores(students);
-        System.out.println("long1--->"+jugadores.length);
-        System.out.println("long2--->"+jugadores[0].length);
+        //System.out.println("long1--->"+jugadores.length);
+        //System.out.println("long2--->"+jugadores[0].length);
       for(int i = 0; i<jugadores.length; i++){
            for(int j = 0; j<jugadores[i].length; j++){
                System.out.println(jugadores[i][j]);

@@ -26,6 +26,10 @@ public class Estudiante extends Persona {
         this.carrera = carrera;
     }
 
+    public Estudiante(String nombre, String id){
+        super(nombre);
+        this.id = id;
+    }
 
     @Override
     public String toString() {
