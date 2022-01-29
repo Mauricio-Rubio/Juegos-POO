@@ -59,6 +59,13 @@ public class Interfaz {
             }
         }
     }
+    public void mostrarMatrizRiv(Estudiante[][] students) {
+        for (int i = 0; i < students.length; i++) {
+            for (int j = 0; j < students[i].length; j++) {
+                System.out.println(students[i][j]);
+            }
+        }
+    }
     public void mostrarArreglo(Estudiante [] students){
         for (Estudiante es: students) {
             System.out.println(es);

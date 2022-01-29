@@ -64,10 +64,10 @@ public class DataBase {
                 fichero = new FileOutputStream("src/DataBase/JugadoresDia1.txt");
             }
             if (contador2 == 1) {
-                fichero = new FileOutputStream("src/DataBase/JugadoresDdia2.txt");
+                fichero = new FileOutputStream("src/DataBase/JugadoresDia2.txt");
             }
             if (contador2 == 2) {
-                fichero = new FileOutputStream("src/DataBase/JugadoresDdia3.txt");
+                fichero = new FileOutputStream("src/DataBase/JugadoresDia3.txt");
             }
             ObjectOutputStream tuberia = new ObjectOutputStream(fichero);
             tuberia.writeObject(students);
@@ -136,11 +136,11 @@ public class DataBase {
         File f1 = null;
         try {
             if (contador4 == 0){
-                f1= new File("src/DataBase/JugadoresDdia1.txt");
+                f1= new File("src/DataBase/JugadoresDia1.txt");
             }else if(contador4 == 1){
-                f1= new File("src/DataBase/JugadoresDdia2.txt");
+                f1= new File("src/DataBase/JugadoresDia2.txt");
             }else if(contador4 == 3){
-                f1= new File("src/DataBase/JugadoresDdia3.txt");
+                f1= new File("src/DataBase/JugadoresDia3.txt");
             }
 
             if (f1.exists() && !f1.isDirectory()) {

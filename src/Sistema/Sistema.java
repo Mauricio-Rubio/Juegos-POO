@@ -102,11 +102,12 @@ public class Sistema {
     public void mostrarPartidas(){
         ganadoresD1 = dBase.leerPartidas();
         jugadoresD1 = dBase.leerPartidasJugadores();
-      //  ganadoresD2 = dBase.leerPartidas();
-      //  ganadoresD3 = dBase.leerPartidas();
-        if(ganadoresD1!=null){
+        if(ganadoresD1!=null && jugadoresD1 != null){
+            System.out.println("Mostrando rivales");
+            inter.mostrarMatrizRiv(jugadoresD1);
+            System.out.println("Mostrando ganadores");
             inter.mostrarArreglo(ganadoresD1);
-            inter.mostrarMatriz(jugadoresD1);
+
         }if(ganadoresD2!=null){
             inter.mostrarArreglo(ganadoresD2);
         }if(ganadoresD3 != null){
@@ -307,7 +308,7 @@ public class Sistema {
             System.out.println("Juego ha terminado");
             System.out.println("Guardando los resultados");
             dBase.guardarGanadores(ganadoresD1);
-            dBase.guardarGanadores(ganadoresD2);
+            //dBase.guardarGanadores(ganadoresD2);
             do{
                 System.out.println("¿Desea continuar al siguiente dia? (S/N)");
                 elec = sc.nextLine();
