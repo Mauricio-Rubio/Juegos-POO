@@ -1,9 +1,9 @@
 package Sistema;
 
-import Clases.*;
-import DataBase.DataBase;
-import Juegos.BlackJack.miniBlackJack;
-import Juegos.Jugar;
+import Sistema.Clases.*;
+import Sistema.DataBase.DataBase;
+import Sistema.Juegos.BlackJack.miniBlackJack;
+import Sistema.Juegos.Jugar;
 
 import java.util.*;
 
