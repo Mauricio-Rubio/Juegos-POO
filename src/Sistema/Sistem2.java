@@ -4,10 +4,11 @@ import Sistema.Clases.*;
 import Sistema.DataBase.DataBase;
 import Sistema.Juegos.BlackJack.miniBlackJack;
 import Sistema.Juegos.Jugar;
+import jdk.nashorn.internal.runtime.ECMAException;
 
 import java.util.*;
 
-public class Sistema {
+public class Sistem2 {
     int dias = 1;
     protected Estudiante[] students;
     private Jugar[] juegos = new Jugar[3];
@@ -22,9 +23,8 @@ public class Sistema {
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
 
-    public void iniciar(Estudiante[] students) {
+    public void iniciar() {
         System.out.println("Bienvenido al torneo");
-        this.students = students;
         estado();
     }
 
@@ -35,6 +35,10 @@ public class Sistema {
             menu();
         } else {
             if (registrar()) {
+                //System.out.println(students);
+                for (Estudiante es: students) {
+                    System.out.println(es);
+                }
                 System.out.println("Registro exitoso");
                 System.out.println("Guardando Jugadores");
                 if(dBase.guardarJugadores(students)){
@@ -87,7 +91,7 @@ public class Sistema {
             System.out.println("Debes ingresar una opción valida");
             //System.out.println(e.getMessage());
         }
-        
+
     }
     public void mostrarRegistro(){
         for (Estudiante es:students) {
@@ -122,22 +126,23 @@ public class Sistema {
     public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
-        // System.out.println("Ingresa el numero de estudiantes (minimo 2)");
-        // String x = scInt.nextLine();
-        int nStunden = students.length;
-        /*for(int i = 0; i<students.length;i++){
+        System.out.println("Ingresa el numero de estudiantes (minimo 2)");
+        String x = sc.nextLine();
+        int nStunden=0;
+        //students = new Estudiante[nStunden];
+       /* for(int i = 0; i<students.length;i++){
             System.out.println(students[i]);
         }*/
-        //System.out.println("Esto vale stundets--->"+nStunden);
+        System.out.println("Esto vale stundets--->"+nStunden);
         try {
-            //   nStunden = Integer.parseInt(x);
+            nStunden = Integer.parseInt(x);
             if (nStunden >= 1) {
-                //students = new Estudiante[nStunden];
+                students = new Estudiante[nStunden];
                 try {
-                    //llenarRegistro();
-                    //for (Estudiante est : students) {
-                    //  System.out.println(est);
-                    //}
+                    llenarRegistro();
+                    /*for (Estudiante est : students) {
+                      System.out.println(est);
+                    }*/
                     // for (int z = 0; z<students.length; z++){
                     //   System.out.println(students[z]);
                     //}

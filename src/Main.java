@@ -1,6 +1,7 @@
 import Sistema.Clases.Estudiante;
 import Sistema.Interfaz;
 import Sistema.Sistema;
+import Sistema.Sistem2;
 
 public class Main {
     private static Estudiante[] students;
@@ -8,9 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
         //Vamos a establecer los casos prueba
-
+        //if(args[0] == null)System.out.println("-->"+args);
         //Numero par de usuarios genericos (2)
-        if(args[0].equals("a")){
+        if(args.length==0){
+            new Sistem2().iniciar();
+        }else if(args[0].equals("a")){
             generar(2);
         }
         //Numero impar de usuario genericos (5)
@@ -25,9 +28,7 @@ public class Main {
         else if(args[0].equals("d")){
             generar(11);
         }
-
     }
-
     public static void generar(int x) {
         students = new Estudiante[x];
         String name = "Mauricio Rubio Haro", date = "29/08/2003", sex = "M", carrer = "Ciencias de la computacion";
