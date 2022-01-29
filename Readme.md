@@ -18,9 +18,13 @@ El proyecto ya se encuentra compilado, por lo que solo necesitas ejecutarlo con 
 Ahora, existen 5 formas de ejecutar el programa:
 
 >  "java Main a" *(PRECARGADA CON 2 CASOS GENERICOS)*
+
 >"java Main b" *(PRECARGADA CON 5 CASOS GENERICOS)*
+
 >"java Main c" *(PRECARGADA CON  10 CASOS GENERICOS)*
+
 >"java Main d" *(PRECARGADA CON 11 CASOS GENERICOS)*
+
 >"java Main" *(DEFAULT)*
 
 Cada una de las opciones de ejecutar nos ayudara a ver el comportamiento del programa ante casos pares o impares, y con mayor volumen. Hay que recalcar, que despues de cada ejecucion se crearan multiples .txt en 
