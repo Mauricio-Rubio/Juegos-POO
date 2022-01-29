@@ -61,8 +61,7 @@ public class Sistem2 {
         System.out.println("1.- Concursantes registrados");
         System.out.println("2.- Partidas registradas");
         System.out.println("3.- Lista del torneo");
-        System.out.println("4.- Ganadores");
-        System.out.println("5.- Salir");
+        System.out.println("4.- Salir");
         String elec = sc.nextLine();
         try {
             x=Integer.parseInt(elec);
@@ -79,9 +78,6 @@ public class Sistem2 {
                     mostrarParejas();
                     break;
                 case 4:
-                    campeon();
-                    break;
-                case 5:
                     System.out.println("Adios");
                     break;
                 default:
@@ -115,13 +111,18 @@ public class Sistem2 {
 
     }
     public void mostrarParejas(){
-
+        jugadoresD1 = dBase.leerPartidasJugadores();
+        jugadoresD2 = dBase.leerPartidasJugadores();
+        jugadoresD3 = dBase.leerPartidasJugadores();
+        if(ganadoresD1!=null && jugadoresD1 != null){
+            System.out.println("Mostrando rivales de BlackJack");
+            inter.mostrarMatrizRiv(jugadoresD1);
+            System.out.println("Mostrando rivales de Conecta");
+            inter.mostrarMatrizRiv(jugadoresD2);
+            System.out.println("Mostrando rivales de Dados");
+            inter.mostrarMatrizRiv(jugadoresD3);
+        }
     }
-    public void campeon(){
-
-    }
-
-
 
     public boolean registrar() {
         sc = new Scanner(System.in);
