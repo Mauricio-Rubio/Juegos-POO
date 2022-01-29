@@ -111,7 +111,17 @@ public class Sistema {
 
     }
     public void mostrarParejas(){
-
+        jugadoresD1 = dBase.leerPartidasJugadores();
+        jugadoresD2 = dBase.leerPartidasJugadores();
+        jugadoresD3 = dBase.leerPartidasJugadores();
+        if(jugadoresD1 != null){
+            System.out.println("Mostrando rivales de BlackJack");
+            inter.mostrarMatrizRiv(jugadoresD1);
+            System.out.println("Mostrando rivales de Conecta");
+            inter.mostrarMatrizRiv(jugadoresD2);
+            System.out.println("Mostrando rivales de Dados");
+            inter.mostrarMatrizRiv(jugadoresD3);
+        }
     }
     public void campeon(){
 
@@ -316,6 +326,13 @@ public class Sistema {
         if(dias == 2){
             //jugarD1();
             System.out.println("Se jugo conecta");
+            jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+            System.out.println("Organizando jugadores");
+            for (Estudiante [] es: jugadoresD2) {
+                System.out.println(es);
+            }
+            System.out.println("Guardando la partida");
+            dBase.guardarPartidas(jugadoresD2);
             do{
                 System.out.println("¿Desea continuar al siguiente dia? (S/N)");
                 elec = sc.nextLine();
@@ -327,6 +344,14 @@ public class Sistema {
         }
         if(dias == 3){
             System.out.println("Se jugó dados");
+            jugadoresD3= inter.distribuirJugadores(inter.desordenarArreglo(students));
+            System.out.println("Organizando jugadores");
+            for (Estudiante [] es: jugadoresD3) {
+                System.out.println(es);
+            }
+            System.out.println("Se jugó dados");
+            System.out.println("Guardando la partida");
+            dBase.guardarPartidas(jugadoresD3);
         }
         estado();
     }

@@ -2,6 +2,7 @@ package Sistema;
 
 import Sistema.Clases.Estudiante;
 import Sistema.IA.IA;
+import Sistema.Juegos.BlackJack.Carta;
 
 public class Interfaz {
     public String generarID(String nombre, String dia, String year) {
@@ -40,16 +41,19 @@ public class Interfaz {
     }
 
     public Estudiante[] desordenarArreglo(Estudiante[] students) {
-        int a, b;
         Estudiante aux;
-        a = students.length;
-        for (int i = 0; i <= a / 2; i++) {
-            aux = students[i];
-            students[i] = students[a - 1];
-            students[a - 1] = aux;
-            a--;
+        int aleatorio;
+        for (int i = 0; i < students.length; i++) {
+            aleatorio = random(students.length) - 1;
+            aux = students[aleatorio];
+            students[aleatorio] = students[i];
+            students[i] = aux;
         }
         return students;
+    }
+
+    private int random(int max) {
+        return (int) Math.round(Math.random() * max + 0.5);
     }
 
     public void mostrarMatriz(Estudiante[][] students) {
