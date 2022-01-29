@@ -5,15 +5,22 @@ import Sistema.Juegos.Jugar;
 
 public class miniBlackJack extends Jugar {
     //private Estudiante [] [] jugadores;
+    
     private Baraja baraja;
     private IABlackJack IA = new IABlackJack();
-
+    /**
+     * Mini Black Jack
+     * @param jugadores
+     */
     public miniBlackJack(Estudiante[][] jugadores) {
         super(jugadores);
         this.jugadores = jugadores;
         //baraja=new Baraja();
     }
-
+    /**
+     * Jugar
+     * @return Estudiante
+     */
     public Estudiante[] jugar() {
         int PARTIDAS = jugadores[0].length;
         Estudiante [] ganadores;
@@ -79,6 +86,11 @@ public class miniBlackJack extends Jugar {
         return ganadores;
     }
 
+    /**
+     * Elegir
+     * @param jugador
+     * @return boolean
+     */
     public boolean elegir(Estudiante jugador) {
         int aleatorio = IA.random2();
         if (aleatorio == 2) {
@@ -90,6 +102,12 @@ public class miniBlackJack extends Jugar {
         return false;
     }
 
+    /**
+     * Ganador
+     * @param mano1
+     * @param mano2
+     * @return
+     */
     public int ganador(int mano1, int mano2) {
         int n = 0;
         if (mano1 > 21 && mano2 <= 21) {

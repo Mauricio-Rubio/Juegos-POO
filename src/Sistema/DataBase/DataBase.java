@@ -6,6 +6,11 @@ import java.io.*;
 
 public class DataBase {
     int contador1=0,contador2=0,contador3=0,contador4=0;
+    /**
+     * Guardar Jugadores
+     * @param students
+     * @return boolean
+     */
     public boolean guardarJugadores(Estudiante[] students) {
         FileOutputStream fichero = null;
         try {
@@ -26,7 +31,11 @@ public class DataBase {
         }
         return false;
     }
-
+    /**
+     * Guardar ganadores
+     * @param students
+     * @return boolean
+     */
     public boolean guardarGanadores(Estudiante[] students) {
         System.out.println("Esto vale contador-->"+contador1);
         FileOutputStream fichero = null;
@@ -57,6 +66,12 @@ public class DataBase {
         }
         return false;
     }
+
+    /**
+     * Guardar Partidas
+     * @param students
+     * @return
+     */
     public boolean guardarPartidas(Estudiante[][] students) {
         FileOutputStream fichero = null;
         try {
@@ -87,6 +102,10 @@ public class DataBase {
         return false;
     }
 
+    /**
+     * Leer Partidas
+     * @return Estudiante[]
+     */
     public Estudiante[] leerPartidas() {
         FileInputStream ficheroEntrada = null;
         Estudiante[] students = null;
@@ -130,6 +149,11 @@ public class DataBase {
 
         return students;
     }
+
+    /**
+     * Leer partidas Jugadores
+     * @return Estudiante[][]
+     */
     public Estudiante[][] leerPartidasJugadores() {
         FileInputStream ficheroEntrada = null;
         Estudiante[][] students = null;
@@ -173,7 +197,10 @@ public class DataBase {
 
         return students;
     }
-
+    /**
+     * Leer estudiantes
+     * @return Estudiante[]
+     */
     public Estudiante[] leerEstudiantes() {
         FileInputStream ficheroEntrada = null;
         Estudiante[] students = null;

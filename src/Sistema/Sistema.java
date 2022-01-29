@@ -22,12 +22,18 @@ public class Sistema {
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
 
+    /**
+     * Iniciar el sistema
+     * @param students
+     */
     public void iniciar(Estudiante[] students) {
         System.out.println("Bienvenido al torneo");
         this.students = students;
         estado();
     }
-
+    /**
+     * Estado de carga (lectura de archivos)
+     */
     public void estado() {
         if (dBase.leerEstudiantes() != null) {
             System.out.println("Cargando datos");
@@ -49,7 +55,11 @@ public class Sistema {
             }
         }
     }
+    
 
+    /**
+     * menu de opciones
+     */
     public void menu(){
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
@@ -89,17 +99,25 @@ public class Sistema {
         }
         
     }
+
+    /**
+     * Mostrar Registro
+     */
     public void mostrarRegistro(){
         for (Estudiante es:students) {
             System.out.println(es);
         }
     }
+
+    /**
+     * Mostrar Partidas
+     */
     public void mostrarPartidas(){
         ganadoresD1 = dBase.leerPartidas();
         jugadoresD1 = dBase.leerPartidasJugadores();
         if(ganadoresD1!=null && jugadoresD1 != null){
             System.out.println("Mostrando rivales");
-            inter.mostrarMatrizRiv(jugadoresD1);
+            inter.mostrarMatriz(jugadoresD1);
             System.out.println("Mostrando ganadores");
             inter.mostrarArreglo(ganadoresD1);
 
@@ -110,17 +128,20 @@ public class Sistema {
         }
 
     }
+    /**
+     * Mostrar Parejas
+     */
     public void mostrarParejas(){
         jugadoresD1 = dBase.leerPartidasJugadores();
         jugadoresD2 = dBase.leerPartidasJugadores();
         jugadoresD3 = dBase.leerPartidasJugadores();
         if(jugadoresD1 != null){
             System.out.println("Mostrando rivales de BlackJack");
-            inter.mostrarMatrizRiv(jugadoresD1);
+            inter.mostrarMatriz(jugadoresD1);
             System.out.println("Mostrando rivales de Conecta");
-            inter.mostrarMatrizRiv(jugadoresD2);
+            inter.mostrarMatriz(jugadoresD2);
             System.out.println("Mostrando rivales de Dados");
-            inter.mostrarMatrizRiv(jugadoresD3);
+            inter.mostrarMatriz(jugadoresD3);
         }
     }
     public void campeon(){
@@ -128,7 +149,10 @@ public class Sistema {
     }
 
 
-
+    /**
+     *  Registrar
+     * @return boolean
+     */
     public boolean registrar() {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
@@ -187,6 +211,10 @@ public class Sistema {
         return false;
     }
 
+    /**
+     * Llena registro
+     * @throws Exception
+     */
     public void llenarRegistro() throws Exception {
         try {
             sc = new Scanner(System.in);
@@ -239,11 +267,18 @@ public class Sistema {
         }
     }
 
+    /**
+     * Llena registro existente 
+     * en caso de que falles al hacer llenado,
+     * para no perder los cambios hechos ya en el 
+     * arrreglo
+     * @param i
+     */
     public void llenarRegistroExistente(int i) {
         sc = new Scanner(System.in);
         scInt = new Scanner(System.in);
         String name, date, sex, carrer;
-        for (i = i; i < students.length; i++) {
+        for (i = 0; i < students.length; i++) {
             //students[i] = new Estudiante();
             System.out.println("Ingresa el nombre completo del estudiante " + (i + 1));
             name = sc.nextLine();
@@ -276,7 +311,16 @@ public class Sistema {
             }
         }
     }
-
+    /**
+     * Validar Data Registro
+     * verifica que cada uno de los datos pasados 
+     * esten correctos
+     * @param name
+     * @param date
+     * @param sex
+     * @param carrer
+     * @return
+     */
     public boolean validarDataRegistro(String name, String date, String sex, String carrer) {
         if (name.length() > 2) {
             String[] dateArr = date.split("/");
@@ -297,7 +341,9 @@ public class Sistema {
         return false;
     }
 
-
+    /**
+     * Comenza Juegos
+     */
     public void comenzarJuego() {
         //Falta agregar un metodo que divida a los usuarios en parejas para así continuar
         //juegos[0] = new miniBlackJack();
@@ -355,6 +401,11 @@ public class Sistema {
         }
         estado();
     }
+
+    /**
+     * Jugar D1
+     * donde se comienza a jugar blackjack
+     */
     public void jugarD1(){
         jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
         System.out.println("Guardando las partidas");

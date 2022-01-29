@@ -6,7 +6,9 @@ public class Baraja {
 
     Carta[] cartas;
     int contador =0;
-
+    /**
+     * Baraja
+     */
     public Baraja() {
         cartas = new Carta[52];
         String[] palos = {"diamante", "trebol", "picas", "corazon"};
@@ -17,14 +19,19 @@ public class Baraja {
             cartas[i + 38] = new Carta(i, "corazon");
         }
     }
-
+    /**
+     * tomar carta
+     * @return Carta
+     */
     public Carta tomarCarta() {
         Carta x;
         x = cartas[contador];
         contador++;
         return x;
     }
-
+    /**
+     * Revolver baraja
+     */
     public void revolverBaraja() {
         Carta aux;
         int aleatorio;
@@ -35,7 +42,12 @@ public class Baraja {
             cartas[i] = aux;
         }
     }
-
+    /**
+     * compara cartass
+     * @param c1
+     * @param c2
+     * @return boolean
+     */
     public boolean compararCartas(Carta c1, Carta c2) {
         if (c1.equals(c2)) {
             return true;
@@ -43,14 +55,14 @@ public class Baraja {
             return false;
         }
     }
-
+    
     @Override
     public String toString() {
         return "Baraja{" +
                 "cartas=" + Arrays.toString(cartas) +
                 '}';
     }
-
+    
     public Carta[] getCartas() {
         return cartas;
     }
