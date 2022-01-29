@@ -2,14 +2,14 @@
 
 ## Como ejecutar
 Ejecuta el siguiente comando en terminal: 
-> 
-git clone: https://github.com/TheMotherFucker29/Juegos-POO.git
-> 
 
-Ahora despazate hacia el fichero Juegos-Poo
-> 
-cd Juegos-Poo
-> 
+>git clone: https://github.com/TheMotherFucker29/Juegos-POO.git
+ 
+
+>Ahora despazate hacia el fichero Juegos-Poo
+ 
+>cd Juegos-Poo
+ 
 
 El proyecto ya se encuentra compilado, por lo que solo necesitas ejecutarlo con una version igual o mayor a java 8. Para ejecutarlo ve a :
 
@@ -18,10 +18,10 @@ El proyecto ya se encuentra compilado, por lo que solo necesitas ejecutarlo con 
 Ahora, existen 5 formas de ejecutar el programa:
 
 >  "java Main a" *(PRECARGADA CON 2 CASOS GENERICOS)*
-"java Main b" *(PRECARGADA CON 5 CASOS GENERICOS)*
-"java Main c" *(PRECARGADA CON  10 CASOS GENERICOS)*
-"java Main d" *(PRECARGADA CON 11 CASOS GENERICOS)*
-"java Main" *(DEFAULT)*
+>"java Main b" *(PRECARGADA CON 5 CASOS GENERICOS)*
+>"java Main c" *(PRECARGADA CON  10 CASOS GENERICOS)*
+>"java Main d" *(PRECARGADA CON 11 CASOS GENERICOS)*
+>"java Main" *(DEFAULT)*
 
 Cada una de las opciones de ejecutar nos ayudara a ver el comportamiento del programa ante casos pares o impares, y con mayor volumen. Hay que recalcar, que despues de cada ejecucion se crearan multiples .txt en 
 > cd out/production/ProyectoFinal/Sistema/DataBase/ 
