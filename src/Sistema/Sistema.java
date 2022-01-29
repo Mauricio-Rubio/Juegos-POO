@@ -8,11 +8,16 @@ import Juegos.Jugar;
 import java.util.*;
 
 public class Sistema {
-    int[] dias = {1, 2, 3};
-    private Estudiante[] students;
+    int dias = 1;
+    protected Estudiante[] students;
     private Jugar[] juegos = new Jugar[3];
     private DataBase dBase = new DataBase();
-    public Estudiante[][] ganadores;
+    public Estudiante[] ganadoresD1;
+    public Estudiante[] ganadoresD2;
+    public Estudiante[] ganadoresD3;
+    private Estudiante[][] jugadoresD1;
+    private Estudiante[][] jugadoresD2;
+    private Estudiante[][] jugadoresD3;
     Interfaz inter = new Interfaz();
     Scanner sc = new Scanner(System.in);
     Scanner scInt = new Scanner(System.in);
@@ -26,15 +31,15 @@ public class Sistema {
     public void estado() {
         //Aqui debemos preguntar si ya existe un juego en memoria
         //System.out.println("Ya existe (S/N)");
-        String elec = sc.nextLine();
         if (dBase.leerEstudiantes() != null) {
+            System.out.println("Cargando datos");
             students = dBase.leerEstudiantes();
-            for (Estudiante es:students) {
+            /*for (Estudiante es:students) {
                 System.out.println(es);
-            }
+            }*/
             menu();
         } else {
-            if ((elec.equals("n") || elec.equals("N")) && registrar()) {
+            if (registrar()) {
                 System.out.println("Registro exitoso");
                 System.out.println("Guardando Jugadores");
                 if(dBase.guardarJugadores(students)){
@@ -52,12 +57,68 @@ public class Sistema {
 
     public void menu(){
         sc = new Scanner(System.in);
+        scInt = new Scanner(System.in);
+        int x;
         System.out.println("1.- Concursantes registrados");
         System.out.println("2.- Partidas registradas");
         System.out.println("3.- Lista del torneo");
-        System.out.println("1.- Ganadores");
+        System.out.println("4.- Ganadores");
+        System.out.println("5.- Salir");
         String elec = sc.nextLine();
+        try {
+            x=Integer.parseInt(elec);
+            switch (x){
+                case 1:
+                    mostrarRegistro();
+                    menu();
+                    break;
+                case 2:
+                    mostrarPartidas();
+                    menu();
+                    break;
+                case 3:
+                    mostrarParejas();
+                    break;
+                case 4:
+                    campeon();
+                    break;
+                case 5:
+                    System.out.println("Adios");
+                    break;
+                default:
+                    throw new Exception("Deja de joder");
+            }
+        }catch (Exception e){
+            System.out.println("Debes ingresar una opción valida");
+            //System.out.println(e.getMessage());
+        }
         
+    }
+    public void mostrarRegistro(){
+        for (Estudiante es:students) {
+            System.out.println(es);
+        }
+    }
+    public void mostrarPartidas(){
+        ganadoresD1 = dBase.leerPartidas();
+        jugadoresD1 = dBase.leerPartidasJugadores();
+      //  ganadoresD2 = dBase.leerPartidas();
+      //  ganadoresD3 = dBase.leerPartidas();
+        if(ganadoresD1!=null){
+            inter.mostrarArreglo(ganadoresD1);
+            inter.mostrarMatriz(jugadoresD1);
+        }if(ganadoresD2!=null){
+            inter.mostrarArreglo(ganadoresD2);
+        }if(ganadoresD3 != null){
+            inter.mostrarArreglo(ganadoresD3);
+        }
+
+    }
+    public void mostrarParejas(){
+
+    }
+    public void campeon(){
+
     }
 
 
@@ -236,23 +297,54 @@ public class Sistema {
         //juegos[0] = new miniBlackJack();
         //Persona ganador = juegos[0].jugar();
         System.out.println("Comenzando en breves");
-        Estudiante[][] jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        Estudiante[][] jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        Estudiante[][] jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
-        ganadores = new Estudiante[3][jugadoresD1[0].length];
-        juegos[0] = new miniBlackJack(jugadoresD1);
-        Estudiante[] temp = juegos[0].jugar();
-        for (int i = 0; i < ganadores[0].length; i++) {
-            ganadores[0][i] = temp[i];
+        //jugadoresD2 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        //jugadoresD3 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        String elec="";
+        if(dias == 1){
+            jugarD1();
+            System.out.println("Estos son los ganadores");
+            inter.mostrarArreglo(ganadoresD1);
+            System.out.println("Juego ha terminado");
+            System.out.println("Guardando los resultados");
+            dBase.guardarGanadores(ganadoresD1);
+            dBase.guardarGanadores(ganadoresD2);
+            do{
+                System.out.println("¿Desea continuar al siguiente dia? (S/N)");
+                elec = sc.nextLine();
+                if(elec.equals("S") || elec.equals("s")){
+                    dias++;
+                    break;
+                }
+            }while(! (elec.equals("s")) || ! (elec.equals("S")));
         }
-        System.out.println("Estos son los ganadores");
-        inter.mostrarMatriz(ganadores);
-        System.out.println("Juego ha terminado");
+        if(dias == 2){
+            //jugarD1();
+            System.out.println("Se jugo conecta");
+            do{
+                System.out.println("¿Desea continuar al siguiente dia? (S/N)");
+                elec = sc.nextLine();
+                if(elec.equals("S") || elec.equals("s")){
+                    dias++;
+                    break;
+                }
+            }while(! (elec.equals("s")) || ! (elec.equals("S")));
+        }
+        if(dias == 3){
+            System.out.println("Se jugó dados");
+        }
         estado();
 
         //inter.mostrarMatriz(jugadoresD1);
         /*inter.mostrarMatriz(jugadoresD2);
         inter.mostrarMatriz(jugadoresD3);*/
+    }
+    public void jugarD1(){
+        jugadoresD1 = inter.distribuirJugadores(inter.desordenarArreglo(students));
+        System.out.println("Guardando las partidas");
+        dBase.guardarPartidas(jugadoresD1);
+        //ganadores = new Estudiante[1][jugadoresD1[0].length];
+        juegos[0] = new miniBlackJack(jugadoresD1);
+        ganadoresD1 = juegos[0].jugar();
     }
 
 

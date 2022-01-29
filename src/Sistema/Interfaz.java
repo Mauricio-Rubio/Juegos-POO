@@ -59,4 +59,9 @@ public class Interfaz {
             }
         }
     }
+    public void mostrarArreglo(Estudiante [] students){
+        for (Estudiante es: students) {
+            System.out.println(es);
+        }
+    }
 }
