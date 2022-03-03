@@ -3,7 +3,7 @@
 ## Como ejecutar
 Ejecuta el siguiente comando en terminal: 
 
->git clone: https://github.com/TheMotherFucker29/Juegos-POO.git
+>git clone: https://github.com/Mauricio-Rubio/Juegos-POO.git
  
 
 >Ahora despazate hacia el fichero Juegos-Poo
